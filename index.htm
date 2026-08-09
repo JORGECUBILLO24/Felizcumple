@@ -47,6 +47,8 @@ body {
     position: relative;
     border-radius: 5px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    /* perspectiva real para que la solapa se abra en 3D en vez de solo "aplastarse" */
+    perspective: 600px;
 }
 
 .envelope .flap {
@@ -60,6 +62,8 @@ body {
     border-top: 110px solid #d1c09f;
     transform-origin: top;
     transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
     z-index: 5;
 }
 
@@ -125,7 +129,9 @@ body {
 }
 
 .page {
-    position: relative;
+    position: relative; /* FIX: sin esto, el botón "Siguiente" (position:absolute)
+                             se posicionaba respecto a .pages-container (pantalla completa)
+                             en vez de respecto a la hoja de la carta */
     background-color: #f8f1e4;
     background-image: radial-gradient(
         ellipse at center,
@@ -340,6 +346,19 @@ const envelopeContainer = document.getElementById('envelopeContainer');
 const envelope = document.getElementById('envelope');
 const pagesContainer = document.getElementById('pagesContainer');
 
+// FIX: si el CDN de canvas-confetti no llega a cargar (sin internet, bloqueo, etc.)
+// las llamadas directas a confetti(...) rompían con un error de JS y dejaban
+// el botón "Siguiente" sin funcionar. Con este helper, si falla, simplemente no hay confeti.
+function launchConfetti(options) {
+    if (typeof confetti === 'function') {
+        try {
+            confetti(options);
+        } catch (e) {
+            console.warn('No se pudo lanzar el confeti:', e);
+        }
+    }
+}
+
 // Textos de la carta
 const pagesData = [
 
@@ -420,7 +439,7 @@ envelopeContainer.addEventListener('click', function() {
     envelope.classList.add('open');
     
     // Lanzar confeti
-    confetti({
+    launchConfetti({
         particleCount: 200,
         spread: 100,
         origin: { y: 0.6 },
@@ -434,7 +453,7 @@ envelopeContainer.addEventListener('click', function() {
     
     setTimeout(() => {
 
-        confetti({
+        launchConfetti({
             particleCount: 150,
             spread: 80,
             origin: { y: 0.5 },
@@ -531,7 +550,7 @@ function renderPage(index) {
     page.classList.add('show');
     
     // Confeti pequeño al cambiar de hoja
-    confetti({
+    launchConfetti({
         particleCount: 40,
         spread: 50,
         origin: { y: 0.7 },
@@ -574,7 +593,11 @@ for(let i = 0; i < 30; i++){
     heart.style.animationDuration =
         (Math.random() * 6 + 6) + "s";
 
-    heart.style.top = "100vh";
+    // FIX: antes se ponía además "top: 100vh" por estilo inline, mientras que la
+    // animación @keyframes float YA mueve el corazón con translateY(100vh) al inicio.
+    // Eso sumaba los dos desplazamientos y los corazones arrancaban el doble de abajo
+    // de lo que debían, tardando mucho en aparecer en pantalla.
+    heart.style.top = "0";
 
     document.body.appendChild(heart);
 
