@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Cumpleaños lydia ❤️</title>
+<title>Feliz Cumpleaños Keysi ❤️</title>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
 * {
@@ -13,7 +13,6 @@
 }
 
 body {
-    /* Fondo neutro y cálido para resaltar el pergamino */
     font-family: 'Georgia', 'Times New Roman', serif;
     background: linear-gradient(135deg, #eaddc5, #d4c4a8);
     min-height: 100vh;
@@ -44,7 +43,7 @@ body {
 .envelope {
     width: 320px;
     height: 220px;
-    background: #e8d8b8; /* Base crema del sobre */
+    background: #e8d8b8;
     position: relative;
     border-radius: 5px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
@@ -58,7 +57,7 @@ body {
     height: 0;
     border-left: 160px solid transparent;
     border-right: 160px solid transparent;
-    border-top: 110px solid #d1c09f; /* Solapa un poco más oscura para dar sombra */
+    border-top: 110px solid #d1c09f;
     transform-origin: top;
     transition: transform 0.6s ease;
     z-index: 5;
@@ -76,11 +75,10 @@ body {
     height: 0;
     border-left: 160px solid transparent;
     border-right: 160px solid transparent;
-    border-bottom: 110px solid #dfceae; /* Bolsillo inferior */
+    border-bottom: 110px solid #dfceae;
     z-index: 3;
 }
 
-/* Letra oculta dentro del sobre (en blanco/hueso para sorpresa) */
 .envelope .letter {
     position: absolute;
     top: 10px;
@@ -112,7 +110,7 @@ body {
     50% { opacity: 1; }
 }
 
-/* --- ESTILOS DE LA HOJA (PERGAMINO COLOR HUESO) --- */
+/* --- ESTILOS DE LA HOJA --- */
 .pages-container {
     position: fixed;
     top: 0;
@@ -128,16 +126,19 @@ body {
 
 .page {
     position: relative;
-    /* Color hueso con textura de bordes oscurecidos */
     background-color: #f8f1e4;
-    background-image: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(139, 69, 19, 0.15) 100%);
-    border-radius: 5px; /* Bordes menos redondos para simular papel real */
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0) 60%,
+        rgba(139, 69, 19, 0.15) 100%
+    );
+    border-radius: 5px;
     padding: 50px;
     box-shadow: 
-        inset 0 0 40px rgba(139, 69, 19, 0.15), /* Sombra interior (efecto antiguo) */
-        0 15px 50px rgba(0,0,0,0.5); /* Sombra exterior */
+        inset 0 0 40px rgba(139, 69, 19, 0.15),
+        0 15px 50px rgba(0,0,0,0.5);
     width: 90%;
-    max-width: 800px; /* Hojas más grandes */
+    max-width: 800px;
     min-height: 550px;
     display: flex;
     flex-direction: column;
@@ -156,7 +157,7 @@ body {
 }
 
 .page h1 {
-    color: #5c3a21; /* Tinta marrón oscuro */
+    color: #5c3a21;
     font-size: 3.5rem;
     margin-bottom: 15px;
     font-style: italic;
@@ -170,13 +171,13 @@ body {
 }
 
 .page h2 {
-    color: #8b3a3a; /* Rojo oscuro romántico */
+    color: #8b3a3a;
     font-size: 2.2rem;
     margin-bottom: 20px;
 }
 
 .page .fragment {
-    color: #3b2413; /* Tinta casi negra */
+    color: #3b2413;
     font-size: 1.8rem;
     line-height: 1.7;
     margin-bottom: 25px;
@@ -184,8 +185,14 @@ body {
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .page .quote {
@@ -213,18 +220,18 @@ body {
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
 }
 
-/* Botón Siguiente Rojo (en medio/inferior derecha) */
+/* Botón Siguiente */
 .next-btn {
     position: absolute;
     bottom: 30px;
     right: 40px;
-    background-color: #d32f2f; /* Rojo intenso clásico */
+    background-color: #d32f2f;
     color: white;
     border: 2px solid #b71c1c;
     padding: 12px 28px;
     font-size: 1.2rem;
     font-family: 'Segoe UI', sans-serif;
-    border-radius: 8px; /* Ligeramente cuadrado para encajar con el estilo */
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
@@ -239,23 +246,27 @@ body {
 /* --- CORAZONES FLOTANTES --- */
 .heart {
     position: absolute;
-    color: #b71c1c; /* Corazones rojos */
+    color: #b71c1c;
     animation: float 8s linear infinite;
     opacity: 0.6;
     z-index: 1;
 }
 
 @keyframes float {
-    from { transform: translateY(100vh); }
-    to { transform: translateY(-100px); }
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-100px);
+    }
 }
 
 /* =========================================
-   ADAPTACIÓN PARA CELULARES (RESPONSIVE)
+   ADAPTACIÓN PARA CELULARES
    ========================================= */
 @media (max-width: 600px) {
     .envelope-container {
-        transform: scale(0.85); /* Achica un poco el sobre en pantallas pequeñas */
+        transform: scale(0.85);
     }
     
     .envelope-container:hover {
@@ -263,27 +274,27 @@ body {
     }
 
     .page {
-        width: 95%; /* Toma casi todo el ancho de la pantalla */
-        min-height: auto; /* Permite que la altura se adapte al contenido */
-        padding: 30px 20px 60px 20px; /* Reduce los márgenes internos, dejando espacio abajo para el botón */
+        width: 95%;
+        min-height: auto;
+        padding: 30px 20px 60px 20px;
     }
 
     .page h1 {
-        font-size: 2.2rem; /* Título más pequeño */
+        font-size: 2.2rem;
     }
 
     .page h2 {
-        font-size: 1.5rem; /* Subtítulo más pequeño */
+        font-size: 1.5rem;
     }
 
     .page .fragment {
-        font-size: 1.2rem; /* Letras del cuerpo más pequeñas */
+        font-size: 1.2rem;
         line-height: 1.5;
         margin-bottom: 15px;
     }
 
     .page .quote {
-        font-size: 1.1rem; /* Cita bíblica adaptada */
+        font-size: 1.1rem;
         padding: 15px;
     }
 
@@ -298,14 +309,15 @@ body {
     }
 
     .next-btn {
-        bottom: 15px; /* Acerca el botón a la esquina */
+        bottom: 15px;
         right: 15px;
-        padding: 8px 18px; /* Hace el botón un poco más pequeño */
+        padding: 8px 18px;
         font-size: 1rem;
     }
 }
 </style>
 </head>
+
 <body>
 
 <div class="envelope-container" id="envelopeContainer">
@@ -314,69 +326,84 @@ body {
         <div class="pocket"></div>
         <div class="letter"></div>
     </div>
-    <div class="click-hint"> Haz clic para abrir el sobre</div>
+
+    <div class="click-hint">
+        Haz clic para abrir el sobre
+    </div>
 </div>
 
 <div class="pages-container" id="pagesContainer"></div>
 
 <script>
+
 const envelopeContainer = document.getElementById('envelopeContainer');
 const envelope = document.getElementById('envelope');
 const pagesContainer = document.getElementById('pagesContainer');
 
 // Textos de la carta
 const pagesData = [
+
     {
         emoji: '🎂',
         title: 'Feliz Cumpleaños',
-        subtitle: 'Keysi ❤️',
-        fragment: '¡Hoy es un día especial!',
+        subtitle: 'Lydia ❤️',
+            fragment: '¡Hoy es un día especial perdona la tardanz!',
         type: 'title'
     },
+
     {
         emoji: '✨',
-        fragment: 'Hoy quiero desearte un día lleno de alegría, bendiciones y momentos inolvidables<br>quizas esto sea lo mas raro que veras en este dia.'
+        fragment: 'Hoy quiero desearte un día lleno de alegría, bendiciones y momentos inolvidables<br>quizás esto sea lo más raro que verás en este día.'
     },
+
     {
         emoji: '😊',
         fragment: 'pero no importa porque<br>Espero que cada sonrisa, cada abrazo y cada detalle que recibas te recuerde lo especial que eres.'
     },
+
     {
         emoji: '💖',
-        fragment: 'Quiero que sepas que te quiero mucho y que ocupas un lugar muy importante en mi.'
+        fragment: 'Quiero que sepas que te quiero mucho y que ocupas un lugar muy importante en mí.'
     },
+
     {
         emoji: '🌟',
         fragment: 'Eres una persona increíble y mereces que hoy y siempre te pasen cosas maravillosas.'
     },
+
     {
         emoji: '🙌',
         fragment: 'Le pido a Dios que te conceda salud, felicidad, sabiduría y que haga realidad los sueños que guardas en tu corazón.'
     },
+
     {
         emoji: '🎉',
         fragment: 'Que este nuevo año de vida esté lleno de oportunidades, éxitos y muchas razones para sonreír.'
     },
+
     {
-        emoji: '📖',
-        fragment: '"Podrá haber muchísimas personas en el mundo, pero para mí, tú siempre vas a destacar. Tienes una luz, una forma de ser y una belleza que te hacen única."',
+        emoji: '',
+        fragment: '"Podrá haber muchísimas personas en el mundo, pero para mí, tú siempre vas a destacar. Tienes una luz, una forma de ser y una belleza que te hacen única."'
     },
-     {
-        emoji: '❤️',
-        fragment: '"Como un lirio entre los espinos, así eres tu entre las mujeres."',
-        quote: 'Cantares 2:2'
+
+    {
+        emoji: '✨',
+        fragment: '"Deléitate asimismo en el Señor, y él te concederá las peticiones de tu corazón."',
+        quote: 'Salmos 37:4'
     },
-    
+
     {
         emoji: '💝',
         fragment: 'Disfruta mucho tu día porque te lo mereces.',
-        signature: 'Feliz cumpleaños, Keysi. Que Dios te bendiga hoy y siempre. 💖✨'
+        signature: 'Feliz cumpleaños, lydia. Que Dios te bendiga hoy y siempre. 💖✨'
     },
+
     {
         emoji: '❤️',
         fragment: 'Con mucho cariño,',
         signature: 'Te quiero mucho ❤️'
     }
+
 ];
 
 let currentPageIndex = 0;
@@ -384,74 +411,117 @@ let isEnvelopeOpen = false;
 
 // Evento para abrir el sobre
 envelopeContainer.addEventListener('click', function() {
+
     if (isEnvelopeOpen) return;
+
     isEnvelopeOpen = true;
     
     // Abrir el sobre
     envelope.classList.add('open');
     
-    // Lanzar confeti (tonos dorados y rojos para encajar con el estilo pergamino)
+    // Lanzar confeti
     confetti({
         particleCount: 200,
         spread: 100,
         origin: { y: 0.6 },
-        colors: ['#d32f2f', '#ffca28', '#8d6e63', '#ffffff']
+        colors: [
+            '#d32f2f',
+            '#ffca28',
+            '#8d6e63',
+            '#ffffff'
+        ]
     });
     
     setTimeout(() => {
+
         confetti({
             particleCount: 150,
             spread: 80,
             origin: { y: 0.5 },
-            colors: ['#b71c1c', '#ffb300', '#f8f1e4']
+            colors: [
+                '#b71c1c',
+                '#ffb300',
+                '#f8f1e4'
+            ]
         });
+
     }, 300);
     
     // Desaparecer el sobre y mostrar la primera hoja
     setTimeout(() => {
+
         envelopeContainer.classList.add('hidden');
+
         renderPage(0);
+
     }, 800);
+
 });
 
 // Función para renderizar la hoja actual
 function renderPage(index) {
+
     pagesContainer.innerHTML = '';
     
     const data = pagesData[index];
+
     const page = document.createElement('div');
+
     page.classList.add('page');
     
     let content = '';
     
     if (data.type === 'title') {
+
         content = `
             <div class="emoji">${data.emoji}</div>
             <h1>${data.title}</h1>
             <h2>${data.subtitle}</h2>
             <div class="fragment">${data.fragment}</div>
         `;
+
     } else {
+
         content = `
             <div class="emoji">${data.emoji}</div>
             <div class="fragment">${data.fragment}</div>
         `;
         
         if (data.quote) {
-            content += `<div class="quote"><strong>${data.quote}</strong></div>`;
+
+            content += `
+                <div class="quote">
+                    <strong>${data.quote}</strong>
+                </div>
+            `;
+
         }
         
         if (data.signature) {
-            content += `<div class="signature">${data.signature}</div>`;
+
+            content += `
+                <div class="signature">
+                    ${data.signature}
+                </div>
+            `;
+
         }
+
     }
     
-    // Agregar botón "Siguiente" rojo si no es la última hoja
+    // Agregar botón "Siguiente"
     if (index < pagesData.length - 1) {
-        content += `<button class="next-btn" onclick="nextPage()">Siguiente ➔</button>`;
+
+        content += `
+            <button class="next-btn" onclick="nextPage()">
+                Siguiente ➔
+            </button>
+        `;
+
     }
     
     page.innerHTML = content;
+
     pagesContainer.appendChild(page);
     
     // Forzar reflow para la animación
@@ -465,29 +535,51 @@ function renderPage(index) {
         particleCount: 40,
         spread: 50,
         origin: { y: 0.7 },
-        colors: ['#d32f2f', '#ffca28', '#ffffff']
+        colors: [
+            '#d32f2f',
+            '#ffca28',
+            '#ffffff'
+        ]
     });
+
 }
 
 // Función para avanzar de hoja
 window.nextPage = function() {
+
     currentPageIndex++;
+
     if (currentPageIndex < pagesData.length) {
+
         renderPage(currentPageIndex);
+
     }
+
 };
 
 // Generar corazones flotantes de fondo
-for(let i=0; i<30; i++){
+for(let i = 0; i < 30; i++){
+
     const heart = document.createElement("div");
+
     heart.innerHTML = "❤️";
+
     heart.classList.add("heart");
+
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-    heart.style.animationDuration = (Math.random() * 6 + 6) + "s";
+
+    heart.style.fontSize =
+        (Math.random() * 20 + 15) + "px";
+
+    heart.style.animationDuration =
+        (Math.random() * 6 + 6) + "s";
+
     heart.style.top = "100vh";
+
     document.body.appendChild(heart);
+
 }
+
 </script>
 
 </body>
